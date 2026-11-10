@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打造自己的 RAG 對話機器人｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w07" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>選一份有興趣的文件當知識來源：RAG01 向量化並建立向量資料庫（rag-data.zip），RAG02 讀入資料庫、搭配 LLM 回答，並用 Gradio 展示。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>選擇和抽卡玩家最相關的三份法規：消費者保護法、網路連線遊戲服務定型化契約應記載及不得記載事項、通訊交易解除權合理例外情事適用準則。</li>
+        <li>從全國法規資料庫下載 PDF，轉成 TXT。</li>
+        <li>老師範例是一篇一個向量；法規太長，所以寫了 split_law_text()，把法規切成一條一筆，共 112 筆。</li>
+        <li>用 EmbeddingGemma 2 向量化、FAISS 建立索引，存成 rag-data.zip 放在雲端，RAG02 用網址下載。</li>
+        <li>人設是「抽卡玩家權益守護騎士」：只根據條文回答，並標出條號。</li>
+      </ol>
+      <figure>
+        <img src="../assets/img/w04-crossdoc.jpg" alt="守護騎士回答網購盲盒拆封後能否退貨" loading="lazy">
+        <figcaption>跨文件檢索：同時引用適用準則第 2 條和消保法第 19-2 條。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>問「抽卡機率沒公布」，檢索第一名就是遊戲契約第六點；問盲盒退貨，同時找到消保法第 19-2 條和適用準則第 2 條。</li>
+        <li>純 LLM 給了很多知識庫以外、沒有來源的平台退款規則；RAG 只根據條文回答並標出條號。</li>
+        <li>問法會影響檢索：問「抽卡後反悔」找得到七日解約，問「儲值後反悔」卻只找到契約終止那一點。</li>
+        <li>AI 偶爾會把不同條文混在一起，或補上文件沒有的機關名稱，還是要對照原文。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>做 RAG 之後才知道，AI 回答得好不好，很大一部分取決於有沒有找到對的資料。同樣是問退費，換個說法就找不到七日解約那一條，回答也跟著變差。</p>
+      <p>純 LLM 和 RAG 的比較也很明顯：沒有資料的 AI 講得頭頭是道，但我沒辦法確認它說的對不對；有條文的 RAG 雖然講得比較少，每一句都能回頭核對。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>RAG01／RAG02 的改寫、PDF 轉 TXT 與切分程式、人設初稿由 Claude 協助；選題、下載法規、在 Colab 執行、上傳雲端、截圖與核對結果由我完成；心得初稿由 Claude 依我的作業內容與執行結果草擬，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>期末專案發想｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w09" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>提早發想期末專案：清楚描述要做什麼、流程與使用的技術，並確定可以做得出來。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>以 RAG 作業為基礎，延伸成「抽卡玩家權益守護者 2.0」。</li>
+        <li>功能一：升級版法規問答，加入多輪對話與問題改寫，檢索改成 top-5。</li>
+        <li>功能二：條款健檢，貼上遊戲條款，逐條比對「不得記載事項」，標出可能違規的條款。</li>
+        <li>功能三：申訴信產生器，填表單後產生附法條依據的申訴信。</li>
+        <li>評估方法：20 題測試集，比較上一版與期末版的檢索命中率（Hit@5）與引用正確率。</li>
+        <li>畫出系統架構圖與條款健檢流程圖，並為每個功能準備做不出來時的備案。</li>
+      </ol>
+
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>把 RAG 作業測出的真實問題（問法不同就漏掉條文、沒有多輪對話）直接當成期末改進的方向。</li>
+        <li>申訴信產生器的原型，在同一週的 AI Agent（Reflection）作業先做出來了。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>寫期末發想時，我直接拿 RAG 作業測出來的問題當改進方向，感覺比憑空想新功能踏實很多。</p>
+      <p>寫評估方法的時候也發現，要證明「改良後比較好」，需要先準備測試題目和標準答案，這是之前做作業時比較少想到的。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>功能整理、概念圖與企劃文字初稿由 Claude 協助；專案方向的決定與可行性確認由我完成；心得初稿由 Claude 依我的作業內容與執行結果草擬，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

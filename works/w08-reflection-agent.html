@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Agent：Reflection｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w08" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>從 Reflection、Tool Use、Planning 中選一種 AI Agent 方法，修改老師的範例做成自己的版本，並用 Gradio 展示。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>選擇 Reflection：先產生結果，再自我檢查，依照回饋修改。</li>
+        <li>依問題類型（七日解約、機率未公告、停止營運⋯）只提供相關法條，避免 AI 引用不存在的規定。</li>
+        <li>作者寫申訴信；審查員用六項檢查表打 1～5 分並輸出 JSON；程式再檢查信中的條號是否都在提供的法條內。</li>
+        <li>六項都 ≥ 4 分且程式檢查通過才算合格，否則把意見交回作者改寫，最多 MAX_ROUNDS 輪。</li>
+        <li>和老師「固定改一次」的版本比較，並調整輪數與審查規則。</li>
+      </ol>
+      <figure>
+        <img src="../assets/img/w06-before.jpg" alt="分數表顯示 5 輪都未合格" loading="lazy">
+        <figcaption>改良前：「事實清楚」每輪 2～3 分，跑滿 5 輪仍未合格。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/w06-after.jpg" alt="分數表顯示第 1 輪合格" loading="lazy">
+        <figcaption>改良後：同一個案例第 1 輪就合格。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>改良前，「抽了 100 抽都沒有特別的」這個案例跑滿 5 輪都不合格：審查員把【請填寫】當成事實不清楚扣分，但作者本來就沒有資料可補。</li>
+        <li>修改審查員規則（【請填寫】是正確做法、不可要求引用其他法規）後，同一個案例第 1 輪就合格。</li>
+        <li>改良後審查員反而偏寬鬆：列出問題卻還是給滿分，審查標準需要反覆測試調整。</li>
+        <li>反思不一定越改越好，用來反思的標準本身也要是對的。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>Reflection 的效果很依賴審查員的標準。我一開始以為讓 AI 自己檢查、自己改，結果一定會越來越好；實際跑了才發現，審查員把【請填寫】當成錯誤，信就跑了 5 輪都過不了。</p>
+      <p>修正之後又變成審查員太寬鬆，可見審查標準需要反覆測試調整。設計 Agent 不只要讓 AI 會反省，也要確定它用來反省的標準是對的。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>Agent 程式、審查員規則的修正與觀察初稿由 Claude 協助；選擇 Agent 類型、在 Colab 執行測試、發現審查員卡住的問題、截圖與核對由我完成；心得初稿由 Claude 依我的作業內容與執行結果草擬，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

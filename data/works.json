@@ -1,0 +1,241 @@
+{
+  "site": {
+    "title": "生成式 AI 作業簿",
+    "author": "庭俞",
+    "course": "生成式 AI 課程｜一學期的作業作品集",
+    "repo": "https://github.com/elainechiu2005-collab/genai-portfolio"
+  },
+  "works": [
+    {
+      "id": "w01",
+      "order": 1,
+      "week": 1,
+      "page": "works/w01-function-plot.html",
+      "title": "請在 Colab 中畫一個函數圖形",
+      "project": "心型曲線",
+      "type": "Python 基礎",
+      "summary": "用參數方程式結合多個不同頻率的 sin 和 cos，在 Colab 畫出一顆平滑對稱的愛心。",
+      "tags": [
+        "Python",
+        "NumPy",
+        "Matplotlib"
+      ],
+      "due": null,
+      "status": "done",
+      "cover": "assets/img/w01-heart.jpg",
+      "links": [
+        {
+          "label": "打開 Colab",
+          "url": "https://colab.research.google.com/drive/1AVfy2pbImrZsGtVKBEKas1KI0t6y-YTG?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "w02",
+      "order": 2,
+      "week": 2,
+      "page": "works/w02-dnn-mnist.html",
+      "title": "打造自己的 DNN（全連結）手寫辨識",
+      "project": "DNN 手寫數字辨識",
+      "type": "深度學習",
+      "summary": "用全連結神經網路辨識 MNIST 手寫數字，比較三組設定，最終測試集正確率 97.85%，並做成可以手寫的 Gradio 畫板。",
+      "tags": [
+        "TensorFlow／Keras",
+        "DNN",
+        "MNIST",
+        "Gradio"
+      ],
+      "due": null,
+      "status": "done",
+      "cover": "assets/img/w02-accuracy.jpg",
+      "links": [
+        {
+          "label": "打開 Colab",
+          "url": "https://colab.research.google.com/drive/1yRKKlT1K6znURd14IV0R_mb6lrkuB9qV?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "w03",
+      "order": 3,
+      "week": 3,
+      "page": "works/w03-cute-bot.html",
+      "title": "打造自己的呆萌型 AI 機器人",
+      "project": "你的專注管家：水豚君",
+      "type": "角色設計",
+      "summary": "一隻待在電腦桌面上的呆萌水豚，發現我分心時會掉橘子、露出快哭的表情，用好笑又可憐的方式叫我回去寫作業。",
+      "tags": [
+        "AI 機器人企劃",
+        "角色設計",
+        "文字作業"
+      ],
+      "due": null,
+      "status": "done",
+      "cover": null,
+      "links": []
+    },
+    {
+      "id": "w04",
+      "order": 4,
+      "week": 4,
+      "page": "works/w04-prompt-design.html",
+      "title": "和 AI 一起設計一個真正好用的 Prompt",
+      "project": "動漫主題全民運動企劃書",
+      "type": "Prompt 設計",
+      "summary": "從一句「請幫我生成全民運動的計劃」開始，讓 AI 先提問、補上自己的經驗、查證事實，最後把同一份 Prompt 交給三個模型比較。",
+      "tags": [
+        "Prompt Engineering",
+        "多模型比較",
+        "事實查證"
+      ],
+      "due": "2026-10-12",
+      "status": "done",
+      "cover": null,
+      "links": []
+    },
+    {
+      "id": "w05",
+      "order": 5,
+      "week": 5,
+      "page": "works/w05-vibe-coding.html",
+      "title": "用 Vibe Coding 做出一個互動網頁",
+      "project": "雲朵小怪獸扭蛋屋",
+      "type": "Vibe Coding",
+      "summary": "12 隻原創雲朵小怪獸的抽卡模擬器，有公開機率、保底、圖鑑、翻牌和升星，前後改了三個版本。",
+      "tags": [
+        "HTML／CSS／JS",
+        "GitHub Pages",
+        "localStorage"
+      ],
+      "due": "2026-10-19",
+      "status": "done",
+      "cover": "assets/img/w02-flip.jpg",
+      "links": [
+        {
+          "label": "打開扭蛋屋",
+          "url": "https://elainechiu2005-collab.github.io/cool/"
+        },
+        {
+          "label": "GitHub 原始碼",
+          "url": "https://github.com/elainechiu2005-collab/cool"
+        }
+      ]
+    },
+    {
+      "id": "w06",
+      "order": 6,
+      "week": 6,
+      "page": "works/w06-aisuite-chatbot.html",
+      "title": "用 AI Suite 打造自己的對話機器人",
+      "project": "宅宅運動教練",
+      "type": "對話機器人",
+      "summary": "中二病教練堅信你是唯一能拯救世界的勇者，記得前面聊過的話，修行次數和覺醒基金交給 Python 計算。",
+      "tags": [
+        "aisuite",
+        "Groq",
+        "Gradio",
+        "多輪對話"
+      ],
+      "due": "2026-10-26",
+      "status": "done",
+      "cover": "assets/img/w03-levelup.jpg",
+      "links": [
+        {
+          "label": "打開 Colab",
+          "url": "https://colab.research.google.com/drive/19BfardDDliKfrIn4GYGUb9mDm-6vwxl8?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "w07",
+      "order": 7,
+      "week": 7,
+      "page": "works/w07-rag.html",
+      "title": "打造自己的 RAG 對話機器人",
+      "project": "抽卡玩家權益守護者",
+      "type": "RAG",
+      "summary": "把三份消費法規切成一條一筆、建立向量資料庫，讓守護騎士只根據條文回答抽卡與網購的權益問題。",
+      "tags": [
+        "EmbeddingGemma 2",
+        "FAISS",
+        "Groq",
+        "Gradio"
+      ],
+      "due": "2026-11-02",
+      "status": "done",
+      "cover": "assets/img/w04-crossdoc.jpg",
+      "links": [
+        {
+          "label": "打開 RAG02（對話機器人）",
+          "url": "https://colab.research.google.com/drive/1QUwKLFXsppn0HIrsI7_jQ6eimKdiTetP?usp=sharing"
+        },
+        {
+          "label": "打開 RAG01（建立資料庫）",
+          "url": "https://colab.research.google.com/drive/1Q09LKd1EBXSykytdd9ZEKq60IE80U8rC"
+        }
+      ]
+    },
+    {
+      "id": "w08",
+      "order": 8,
+      "week": 8,
+      "page": "works/w08-reflection-agent.html",
+      "title": "用程式做一個簡單的 AI Agent",
+      "project": "遊戲申訴信 Reflection Agent",
+      "type": "AI Agent",
+      "summary": "作者寫信、審查員用六項檢查表打分、程式檢查條號，不合格就改寫，直到通過。",
+      "tags": [
+        "Reflection",
+        "JSON 輸出",
+        "Gradio"
+      ],
+      "due": "2026-11-09",
+      "status": "done",
+      "cover": "assets/img/w06-after.jpg",
+      "links": [
+        {
+          "label": "打開 Colab",
+          "url": "https://colab.research.google.com/drive/10vl4g9XIPN0cuQREGghsnnGCmgzAaFek?usp=sharing"
+        }
+      ]
+    },
+    {
+      "id": "w09",
+      "order": 9,
+      "week": 8,
+      "page": "works/w09-final-proposal.html",
+      "title": "期末專案發想",
+      "project": "抽卡玩家權益守護者 2.0",
+      "type": "專案企劃",
+      "summary": "把 RAG 作業延伸成三個分頁：升級版法規問答、遊戲條款健檢、申訴信產生器，並用 20 題測試集評估。",
+      "tags": [
+        "系統設計",
+        "評估方法",
+        "RAG"
+      ],
+      "due": "2026-11-09",
+      "status": "done",
+      "cover": null,
+      "links": []
+    },
+    {
+      "id": "w10",
+      "order": 10,
+      "week": 9,
+      "page": "works/w10-agents-md.html",
+      "title": "建立自己的 AGENTS.md",
+      "project": "這個作品集網站",
+      "type": "專案規則",
+      "summary": "幫這個網站寫了一份 AGENTS.md，之後每交一份作業，AI 都能照同一套規則新增一頁。",
+      "tags": [
+        "AGENTS.md",
+        "GitHub Pages",
+        "資料驅動"
+      ],
+      "due": "2026-11-16",
+      "status": "done",
+      "cover": null,
+      "links": []
+    }
+  ]
+}

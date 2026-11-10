@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>和 AI 一起設計 Prompt｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w04" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>選一個真的想完成的寫作任務，先和 AI 討論需求，再一起設計出一份可以直接交給不同 LLM 使用的完整 Prompt，並用三個模型測試。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>選定任務：寫一份「動漫主題全民運動活動」企劃書，以提案人身分交給桃園市桃園區中山里辦公室。</li>
+        <li>先憑直覺寫 Prompt「請幫我生成全民運動的計劃」，AI 的初稿看起來完整，但地點、預算、人數全是自己編的。</li>
+        <li>請 AI 先不要動筆，用提問釐清需求：讀者是里長、規模約 1000 人、預算約 20 萬元、地點是桃園三民運動公園。</li>
+        <li>補上只有自己知道的經驗：動漫路跑報名費太貴、場次都在外縣市，身邊的動漫愛好者運動習慣很差。</li>
+        <li>查證事實：發現史努比主燈是 2018 年桃園燈節，不是今年；運動部調查的規律運動人口為 35.6%。</li>
+        <li>整理成最終 Prompt，分別交給 Gemini 3.8 Flash、GPT-5.6 Luna、Claude Opus 5.5，用同一套標準比較。</li>
+      </ol>
+
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>Gemini 最具體，但自行加上「身為在地里民」「長年觀察」等我沒提供的經歷，違反了「不可虛構」。</li>
+        <li>GPT 最守規矩，大量標示待查證，但收支沒有真正算平。</li>
+        <li>測試後發現 Prompt 本身有矛盾：1000 人 × 500 元報名費 = 50 萬，和 20 萬預算對不上，三個模型各自用不同方式解讀。</li>
+        <li>Prompt 寫得越具體，輸出越接近能直接使用；但真實經驗、事實查證和最後的取捨，還是只能自己來。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>一開始只丟一句「請幫我生成全民運動的計劃」，AI 很快就寫出一份看起來很完整的企劃，但地點、預算、人數全是它自己編的。</p>
+      <p>讓 AI 先問問題，我才發現很多細節自己根本沒想清楚。三個模型比較下來，最常出問題的是它們會幫我加上沒說過的經歷，所以 Prompt 寫得再好，最後還是要自己檢查。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>本作業的需求提問、Prompt 初稿與比較表格由 Claude 協助整理；任務選擇、個人經驗、Prompt 修改與三個模型的實際測試由我完成；心得初稿由 Claude 依我的作業內容與執行結果草擬，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

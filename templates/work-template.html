@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+  作業頁範本：新增作業時，複製這個檔案到 works/ 並改名為 wNN-英文短名.html
+  要改的地方（其他不要動）：
+    1. <body> 的 data-work-id 改成 works.json 裡的 id（例如 w08）
+    2. <title> 改成作業標題
+    3. 填寫 .sheet 裡五個區塊的內容（區塊順序與標題不可更改）
+  標題、摘要、標籤、連結、上一篇／下一篇都由 assets/site.js 從 data/works.json 自動產生，不要寫在這裡。
+-->
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作業標題｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="wNN" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>用一兩句話說明這份作業的要求。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>依照實際步驟條列，一步一行。</li>
+      </ol>
+      <!-- 有截圖時：
+      <figure>
+        <img src="../assets/img/wNN-說明.jpg" alt="描述圖片內容" loading="lazy">
+        <figcaption>一句話說明這張圖在看什麼。</figcaption>
+      </figure>
+      -->
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>只寫實際執行看到的結果，不要寫預期或想像的結果。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p class="todo">心得由作者本人撰寫中。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>說明哪些部分由 AI 協助、哪些是自己做的。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

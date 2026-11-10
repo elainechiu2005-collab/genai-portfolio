@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打造自己的 DNN（全連結）手寫辨識｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w02" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>用全連結神經網路（DNN）打造自己的手寫數字辨識模型。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>讀入 MNIST 資料集，把 28×28 的影像攤平成 784 維、除以 255 標準化，標籤做 One-hot Encoding。</li>
+        <li>實驗一（基準）：2 層隱藏層（128、64），用 MSE 與 SGD（learning rate 0.087），訓練 10 個 epoch。</li>
+        <li>實驗二：加深到 4 層隱藏層（256、128、64、32），損失函數改成 categorical crossentropy，SGD（learning rate 0.05）。</li>
+        <li>實驗三（最終版）：同樣 4 層架構，優化器改成 Adam，batch size 128、15 個 epoch、20% 當驗證集，並畫出訓練與驗證準確率曲線。</li>
+        <li>用 Gradio 的 Sketchpad 做成手寫畫板，畫一個數字就能看到前三名的辨識結果。</li>
+      </ol>
+      <figure>
+        <img src="../assets/img/w02-accuracy.jpg" alt="訓練與驗證準確率隨 epoch 變化的折線圖" loading="lazy">
+        <figcaption>實驗三的訓練與驗證準確率。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>實驗一：第 1 個 epoch 準確率只有 26.04%，第 10 個 epoch 驗證準確率 90.59%。用 MSE 處理多分類問題，梯度下降很慢。</li>
+        <li>實驗二：改用 crossentropy 後，第 1 個 epoch 就有 75.80%，第 10 個 epoch 驗證準確率提升到 97.22%。</li>
+        <li>實驗三：改用 Adam 後學習很穩定，訓練準確率 99.70%，獨立測試集最終正確率 97.85%，沒有出現嚴重過擬合。</li>
+        <li>影響最大的是損失函數：同樣用 SGD，只是從 MSE 換成 crossentropy，收斂速度就差很多。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>這次最大的收穫是自己做實驗比較。一開始用 MSE，準確率爬得很慢，我還以為是模型太小；換成 crossentropy 之後第一個 epoch 就跳到 75%，才知道選對損失函數有多重要。</p>
+      <p>最後做成手寫畫板，自己畫數字給模型猜的時候，比只看準確率數字更有感覺。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>作業本身是否使用 AI 協助：待作者補充。本頁的整理與心得初稿由 Claude 依我的作業內容協助撰寫，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>請在 Colab 中畫一個函數圖形｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w01" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>在 Google Colab 中，用 Python 畫出一個函數圖形。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>選擇畫心型參數方程式：x = 16 sin³(t)，y = 13 cos(t) − 5 cos(2t) − 2 cos(3t) − cos(4t)，t 從 0 到 2π。</li>
+        <li>用 numpy.linspace 在 0 到 2π 之間取 1000 個點，讓曲線夠平滑。</li>
+        <li>把 t 代入參數方程式，用陣列運算算出 x、y 座標。</li>
+        <li>用 plot 畫深紅色外框，再用 fill 填滿紅色。</li>
+        <li>加上 plt.axis('equal') 鎖定長寬比，並加上標題、座標軸名稱、格線與圖例。</li>
+      </ol>
+      <figure>
+        <img src="../assets/img/w01-heart.jpg" alt="填滿紅色的心型曲線圖" loading="lazy">
+        <figcaption>用參數方程式畫出的心型曲線。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>成功畫出平滑、左右對稱的愛心。</li>
+        <li>比起只畫一條 y = f(x)，參數方程式可以用 t 同時控制 x 和 y，畫出 y = f(x) 畫不出來的封閉曲線。</li>
+        <li>沒有加 plt.axis('equal') 時，X、Y 軸比例不同，愛心會被拉扁；鎖定比例後形狀才正確。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>第一次在 Colab 畫圖，本來只想畫一個簡單的函數，後來覺得畫愛心比較有趣，就去找了心型的參數方程式。</p>
+      <p>最有感的是 plt.axis('equal') 這一行：沒加的時候愛心是扁的，加了才變成正常的形狀。原來同樣的資料，座標軸的比例設定不同，看起來就差很多。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>作業本身是否使用 AI 協助：待作者補充。本頁的整理與心得初稿由 Claude 依我的作業內容協助撰寫，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

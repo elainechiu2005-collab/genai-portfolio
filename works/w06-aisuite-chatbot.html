@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 AI Suite 打造對話機器人｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w06" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>先和生成式 AI 對話、微調出想要的人設，再修改老師的 aisuite 範例，做成自己的對話機器人並用 Gradio 展示。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>人設 v1 只是「鼓勵動漫愛好者運動的教練」，回答像一般健身 App。</li>
+        <li>v2 改成中二病教練，加入「少搭幾次公車就可以買一隻吉伊卡哇了ㄛ」的覺醒基金。</li>
+        <li>v3 加入「世界等我來拯救」的勇者設定，以及四階稱號：見習勇者、覺醒者、封印解放者、救世主。</li>
+        <li>把老師一問一答的 reply() 改成會帶入對話紀錄的多輪對話。</li>
+        <li>修行次數、稱號、基金由 Python 計算，再寫進系統提示交給 AI。</li>
+        <li>Gradio 介面有聊天室、勇者狀態面板、「我完成修行了」按鈕與車資設定。</li>
+      </ol>
+      <figure>
+        <img src="../assets/img/w03-levelup.jpg" alt="Gradio 介面，教練宣告升級為覺醒者" loading="lazy">
+        <figcaption>修正後：回報第 3 次修行，教練說對基金金額並宣告升級。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>多輪對話成功：只說「樓下有住人」，教練就知道是在擔心踏步太吵，改成安靜的伸展任務。</li>
+        <li>發現 AI 會自己亂算數字：面板顯示修行 3 次、基金 NT$45，教練卻說累計 NT$90、已完成 6 次。</li>
+        <li>把車資放進狀態、提醒 AI 不要沿用舊數字後，教練正確說出 NT$45、還差 NT$455，並宣告升級為覺醒者。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>把人設從普通的運動教練一路改成「世界等我來拯救」的中二教練，每改一版回答就差很多，很好玩。</p>
+      <p>但最讓我意外的是 AI 會亂算數字：面板上明明是 NT$45，教練卻說 NT$90。這讓我知道，需要精確的東西要交給程式算，AI 負責講得好聽就好。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>人設改寫、程式與修正方式由 Claude 協助；人設方向、申請 Groq API、在 Colab 執行測試、發現數字錯誤並回報由我完成；心得初稿由 Claude 依我的作業內容與執行結果草擬，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
