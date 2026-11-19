@@ -22,6 +22,7 @@ assets/site.js                讀 works.json，產生首頁、作業頁頁首、
 assets/img/                   作業截圖
 templates/work-template.html  作業頁範本（新增作業時複製這個檔案）
 works/wNN-英文短名.html        每份作業一頁
+llm-wiki/                     第 10 週 LLM Wiki 作業的完整成果（raw、wiki、簡報、執行紀錄），有自己的 SCHEMA.md
 AGENTS.md                     本文件
 CLAUDE.md                     指向本文件
 README.md                     給人看的專案簡介
@@ -73,10 +74,10 @@ README.md                     給人看的專案簡介
    | 我做了什麼 | 有序清單，照實際步驟一步一行，3～7 點 |
    | 結果與發現 | 無序清單，只寫實際執行看到的結果與發現 |
    | 心得 | 第一人稱、口語，2～4 句；必須根據作者提供的內容（見第 6 節）。還沒有資料時保留 `<p class="todo">心得由作者本人撰寫中。</p>` |
+   | AI 協助說明 | 哪些部分由 AI 協助、哪些是作者自己做的 |
 
    **作者還沒提供內容的區塊**，不要自己編，改放待補提示，例如：
    `<p class="todo">待作者補充：這份作業的實際做法。</p>`（第 1～3 週一開始就是這樣處理，作者提供作業檔案後再補上）。
-   | AI 協助說明 | 哪些部分由 AI 協助、哪些是作者自己做的 |
 4. **截圖放進 `assets/img/`**，檔名 `wNN-英文說明.jpg`，寬度 1400px 以內、JPG 格式。用 `<figure>` 放在「我做了什麼」區塊最後，`alt` 描述圖片內容，`figcaption` 一句話說明重點。
 
 **不需要修改** `index.html`、`assets/site.js`、`assets/style.css`：首頁集點卡、作業清單、作業頁頁首、上一篇／下一篇都會自動更新。

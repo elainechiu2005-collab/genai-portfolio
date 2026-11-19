@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>抽卡前，先知道你的 5 個權益</title>
+<meta name="description" content="用 LLM Wiki 整理臺灣法規，給第一次課金的玩家看的教學簡報。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F4F8; --sheet:#FFFFFF; --ink:#1C2B3A; --muted:#5B6B7C; --line:#D5DDE7;
+  --cobalt:#2F54C8; --marker:#FFD43B; --ok:#1F7A4D; --no:#B3261E; --soft:#E8EEFB;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11161D; --sheet:#18202A; --ink:#E6EDF5; --muted:#9AA9B8; --line:#2B3746;
+    --cobalt:#8EA8FF; --marker:#FFD43B; --ok:#6FD39C; --no:#FF8A80; --soft:#1F2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11161D; --sheet:#18202A; --ink:#E6EDF5; --muted:#9AA9B8; --line:#2B3746;
+  --cobalt:#8EA8FF; --marker:#FFD43B; --ok:#6FD39C; --no:#FF8A80; --soft:#1F2A3D;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:var(--paper); color:var(--ink);
+  font:500 18px/1.7 "Noto Sans TC",system-ui,sans-serif;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px);
+  background-size:100% 32px;
+}
+h1,h2,h3,.hand{font-family:"LXGW WenKai TC",serif;font-weight:700;line-height:1.3}
+.deck{height:100%;display:flex;flex-direction:column}
+.stage{flex:1;position:relative;overflow:hidden}
+.slide{
+  position:absolute;inset:0;display:none;overflow-y:auto;
+  padding:clamp(20px,4vw,48px) 16px 24px;
+}
+.slide.on{display:block}
+.card{
+  max-width:960px;margin:0 auto;background:var(--sheet);border:1px solid var(--line);
+  border-radius:14px;padding:clamp(22px,4vw,48px);min-height:100%;
+  display:flex;flex-direction:column;
+}
+.kicker{color:var(--cobalt);font-weight:700;font-size:.9rem;letter-spacing:.04em;margin:0 0 6px}
+h1{font-size:clamp(2rem,6vw,3.4rem);margin:0 0 16px}
+h2{font-size:clamp(1.5rem,4vw,2.3rem);margin:0 0 18px}
+h2 .mk{background:linear-gradient(transparent 62%,var(--marker) 62%)}
+p{margin:0 0 14px}
+ul{margin:0 0 14px;padding-left:1.2em}
+li{margin:6px 0}
+b,strong{color:var(--cobalt)}
+.grow{flex:1}
+.src{
+  margin-top:24px;padding-top:12px;border-top:1px dashed var(--line);
+  font-size:.82rem;color:var(--muted)
+}
+.src a{color:var(--muted)}
+.big{font-size:clamp(1.1rem,2.6vw,1.35rem)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:6px 0 14px}
+.box{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--paper)}
+.box h3{margin:0 0 6px;font-size:1.2rem}
+.box p{margin:0;font-size:.95rem}
+.quote{
+  border-left:5px solid var(--cobalt);background:var(--soft);padding:12px 16px;border-radius:0 10px 10px 0;
+  font-family:"LXGW WenKai TC",serif;font-size:1.1rem;margin:4px 0 16px
+}
+.note{font-size:.9rem;color:var(--muted)}
+.warn{border:1px dashed var(--cobalt);border-radius:10px;padding:10px 14px;font-size:.92rem;margin:4px 0 14px}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding:10px 12px 10px 56px;border:1px solid var(--line);border-radius:12px;margin:10px 0;background:var(--paper)}
+.steps li::before{
+  content:counter(s);position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  width:32px;height:32px;border-radius:50%;background:var(--cobalt);color:var(--sheet);
+  display:grid;place-items:center;font-weight:700
+}
+.vs{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;margin:4px 0 16px}
+.vs .box{flex:1;min-width:200px;text-align:center}
+.vs .num{font-family:"LXGW WenKai TC",serif;font-size:clamp(2.4rem,8vw,3.6rem);font-weight:700;color:var(--cobalt);line-height:1.1}
+.capsules{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 22px}
+.cap{
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--paper);font-size:.95rem
+}
+.cap i{font-style:normal;color:var(--cobalt);font-weight:700;margin-right:4px}
+table{border-collapse:collapse;width:100%;font-size:.95rem;margin:4px 0 14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper)}
+.q{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 12px;background:var(--paper)}
+.q p{margin:0 0 8px;font-weight:700}
+.q button{
+  font:inherit;font-size:.95rem;border:1px solid var(--line);background:var(--sheet);color:var(--ink);
+  border-radius:999px;padding:6px 16px;margin:0 8px 6px 0;cursor:pointer
+}
+.q button[aria-pressed="true"].right{border-color:var(--ok);color:var(--ok)}
+.q button[aria-pressed="true"].wrong{border-color:var(--no);color:var(--no)}
+.q .fb{font-size:.92rem;color:var(--muted);min-height:1.4em;margin:0}
+nav.bar{
+  display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--sheet);
+  border-top:1px solid var(--line)
+}
+nav.bar button{
+  font:inherit;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:10px;padding:6px 14px;cursor:pointer;min-width:44px;min-height:40px
+}
+nav.bar button:disabled{opacity:.4;cursor:default}
+.prog{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.prog span{display:block;height:100%;width:0;background:var(--cobalt);transition:width .2s}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9rem;min-width:52px;text-align:right}
+button:focus-visible,a:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+@media (min-width:601px) and (max-height:820px){
+  body{font-size:16px}
+  .slide{padding:16px 16px 12px}
+  .card{padding:26px 40px 18px}
+  h1{margin-bottom:10px}
+  h2{margin-bottom:10px;font-size:2rem}
+  p{margin-bottom:10px}
+  li{margin:3px 0}
+  .big{font-size:1.1rem}
+  .grid{gap:10px}
+  .box{padding:10px 14px}
+  .steps li{padding:6px 12px 6px 52px;margin:6px 0}
+  .q{padding:10px 14px;margin-bottom:8px}
+  .q p{margin-bottom:4px}
+  .q .fb{min-height:0}
+  .src{margin-top:12px;padding-top:8px;font-size:.78rem}
+  .quote{margin-bottom:10px;padding:8px 14px}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .card{border-radius:10px}
+}
+@media print{
+  nav.bar{display:none}
+  .stage{overflow:visible}
+  .slide{display:block;position:static;page-break-after:always}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+<main class="stage" id="stage">
+
+<!-- 1 封面 -->
+<section class="slide on" data-src="index">
+<div class="card">
+  <p class="kicker">給第一次課金的你｜10 分鐘看懂</p>
+  <h1>抽卡前，<br>先知道你的 5 個權益</h1>
+  <p class="big">抽卡、轉蛋、開寶箱都要花真錢。這份簡報用臺灣的法規告訴你：哪些事遊戲公司<b>一定要做</b>，哪些條款<b>寫了也無效</b>。</p>
+  <div class="capsules" aria-label="五個權益">
+    <span class="cap"><i>1</i>機率要公開</span>
+    <span class="cap"><i>2</i>保底不是義務</span>
+    <span class="cap"><i>3</i>點數不過期</span>
+    <span class="cap"><i>4</i>7 日內可解除</span>
+    <span class="cap"><i>5</i>帳號出事有保障</span>
+  </div>
+  <p class="note grow">用鍵盤 ← → 或下方按鈕翻頁。每一頁最下面都有「依據」，可以點回 Wiki 查原文出處。</p>
+  <p class="src">內容來源：本作業自建的「抽卡玩家權益 LLM Wiki」，整理自 8 份法規、政府資料與新聞。這份簡報不是法律意見。</p>
+</div>
+</section>
+
+<!-- 2 定型化契約 -->
+<section class="slide" data-src="定型化契約">
+<div class="card">
+  <p class="kicker">先懂一個詞</p>
+  <h2>你按下的「同意」，叫做<span class="mk">定型化契約</span></h2>
+  <p>業者先寫好、玩家只能按同意的條款，就是定型化契約。法律要求它<b>平等互惠</b>；條款看不懂、有兩種解釋時，要用<b>對玩家有利</b>的那一種。</p>
+  <p>政府還替線上遊戲訂了一份「契約最低標準」。下面這些條款，<b>就算寫了也無效</b>：</p>
+  <div class="grid">
+    <div class="box"><h3>點數有使用期限</h3><p>付費點數不能設期限。</p></div>
+    <div class="box"><h3>業者有最終解釋權</h3><p>不得記載。</p></div>
+    <div class="box"><h3>業者可以單方改契約</h3><p>不得記載。</p></div>
+    <div class="box"><h3>廣告僅供參考</h3><p>廣告內容其實是契約的一部分。</p></div>
+  </div>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/定型化契約.md">[[定型化契約]]</a>（S1 消保法第 2、11 條；S2 不得記載事項）</p>
+</div>
+</section>
+
+<!-- 3 機率 -->
+<section class="slide" data-src="機率揭露">
+<div class="card">
+  <p class="kicker">權益 1</p>
+  <h2>抽卡機率<span class="mk">一定要公開</span></h2>
+  <ul class="big">
+    <li>只要跟付費有關就要公布：直接、間接、部分付費都算。<br><span class="note">例：寶箱免費、鑰匙要付費 → 寶箱內容的機率也要公布。</span></li>
+    <li>機率要用<b>百分比</b>寫，不能只寫「很高」「很低」。</li>
+    <li>要放在官網首頁、遊戲登入頁或購買頁、遊戲包裝上。</li>
+  </ul>
+  <p>而且一定要附上這句提示語：</p>
+  <div class="quote">「此為機會中獎商品，消費者購買或參與活動不代表即可獲得特定商品」</div>
+  <p class="note">這條規定 112 年 1 月 1 日起生效。</p>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/機率揭露.md">[[機率揭露]]</a>（S2 壹、六；S3；S5）</p>
+</div>
+</section>
+
+<!-- 4 保底 -->
+<section class="slide" data-src="保底與天井">
+<div class="card">
+  <p class="kicker">權益 2</p>
+  <h2>保底和天井：<span class="mk">鼓勵，不是強制</span></h2>
+  <div class="grid">
+    <div class="box"><h3>天井</h3><p>付到一定條件，可以拿到<b>指定</b>的稀有角色或道具。</p></div>
+    <div class="box"><h3>保底</h3><p>付到一定條件，可以拿到<b>不指定</b>的稀有角色或道具。</p></div>
+  </div>
+  <p>政府把這兩種機制寫進契約範本，但只是<b>鼓勵業者參考推行</b>。所以一款遊戲沒有保底，本身不違法。</p>
+  <div class="warn">不過：如果遊戲<b>宣傳</b>有保底，廣告是契約的一部分，就要做到。（這是由兩條規定推論出來的）</div>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/保底與天井.md">[[保底與天井]]</a>（S3；S5；S6；S2 壹、三）</p>
+</div>
+</section>
+
+<!-- 5 點數 -->
+<section class="slide" data-src="點數與退款">
+<div class="card">
+  <p class="kicker">權益 3</p>
+  <h2>點數<span class="mk">不會過期</span>，不玩了可以退</h2>
+  <ul class="big">
+    <li>契約<b>不能</b>規定付費點數的使用期限。</li>
+    <li>你可以隨時終止契約。業者<b>扣除必要成本後</b>，要在 <b>30 日內</b>退還<b>未使用</b>的點數。</li>
+    <li>業者不能用「沒收剩下的點數」當懲罰。</li>
+    <li>遊戲要收掉，至少要在 <b>30 日前</b>公告；沒照規定公告的，不能扣必要成本，還要合理補償。</li>
+  </ul>
+  <p class="note">已經花掉、抽掉的點數，不算「未使用」。</p>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/點數與退款.md">[[點數與退款]]</a>（S2 壹、十八、十九、貳；S6）</p>
+</div>
+</section>
+
+<!-- 6 七天 -->
+<section class="slide" data-src="七天解除與數位內容例外">
+<div class="card">
+  <p class="kicker">權益 4</p>
+  <h2>網購有 7 天鑑賞期，<span class="mk">遊戲呢？</span></h2>
+  <table>
+    <tr><th>情況</th><th>規定</th></tr>
+    <tr><td>一般網購</td><td>收到商品 7 日內，不用理由就能解除契約。</td></tr>
+    <tr><td>數位內容</td><td>業者<b>事先告知</b>並經你同意才提供的，可以排除 7 天解除。</td></tr>
+    <tr><td>線上遊戲</td><td>適用遊戲契約的特別規定：<b>開始遊戲後 7 日內</b>可以書面解除，並退還<b>未使用</b>的點數。</td></tr>
+  </table>
+  <p>重點：能退的是<b>還沒用掉的點數</b>。已經抽掉的內容不在退還範圍。</p>
+  <div class="warn">「開始遊戲後 7 日」從哪一天算？條文只寫「開始遊戲後」，Wiki 標為待確認。真的遇到時，先打 1950 問清楚。</div>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/七天解除與數位內容例外.md">[[七天解除與數位內容例外]]</a>（S1 第 19 條；S4 第 2、3 條；S2 壹、四；S7）</p>
+</div>
+</section>
+
+<!-- 7 帳號 -->
+<section class="slide" data-src="帳號停權與程式錯誤">
+<div class="card">
+  <p class="kicker">權益 5</p>
+  <h2>帳號被盜、被停權、遇到 bug</h2>
+  <div class="grid">
+    <div class="box"><h3>被盜</h3><p>業者查證後可先暫停帳號；對方 7 日內沒說明，業者要回復被轉走的東西或補償。</p></div>
+    <div class="box"><h3>被停權</h3><p>第一次違規要先通知改善；每次最長停 7 日。不服可在 7 日內申訴，業者最長 15 日回覆。</p></div>
+    <div class="box"><h3>bug／連不上</h3><p>業者要修復、返還被扣的費用；程式錯誤造成損失要賠，修好前不能收費。</p></div>
+  </div>
+  <p><b>留證據：</b>業者要保存你的遊戲歷程至少 30 日，你可以申請調閱，費用不超過 200 元，7 日內提供。</p>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/帳號停權與程式錯誤.md">[[帳號停權與程式錯誤]]</a>（S2 壹、八、九、十二、十三、十五、十六）</p>
+</div>
+</section>
+
+<!-- 8 案例 -->
+<section class="slide" data-src="案例-天堂M機率爭議">
+<div class="card">
+  <p class="kicker">真實案例</p>
+  <h2>為什麼要有「轉蛋法」？</h2>
+  <div class="vs">
+    <div class="box"><div class="num">10%</div><p>官方公告的成功率（韓版）</p></div>
+    <div class="box"><div class="num">約 2.3%</div><p>實況主丁特花費逾 200 萬元的實測結果</p></div>
+  </div>
+  <p>這起《天堂M》事件讓「機率要不要公開、公開的準不準」變成大家關心的問題，後來的修正就要求用百分比揭露機率。</p>
+  <p class="note">想一想：如果公告和實際不一樣，你要怎麼證明？所以範本建議業者把抽獎紀錄保存到活動結束後至少 180 日。</p>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/案例-天堂M機率爭議.md">[[案例-天堂M機率爭議]]</a>（S5 公視新聞 2022-07-15；S3）</p>
+</div>
+</section>
+
+<!-- 9 申訴 -->
+<section class="slide" data-src="申訴管道">
+<div class="card">
+  <p class="kicker">出事怎麼辦</p>
+  <h2>申訴三步驟</h2>
+  <ol class="steps">
+    <li><b>先找遊戲公司</b>：業者要在申訴之日起 15 日內妥適處理。</li>
+    <li><b>找消保官</b>：沒處理好，向你所在縣市的消費者保護官申訴。</li>
+    <li><b>申請調解</b>：還是沒解決，向縣市的消費爭議調解委員會申請調解。</li>
+  </ol>
+  <p>不知道從哪開始？先打 <b>1950</b> 消費者服務專線。</p>
+  <p class="note">申訴前先準備：機率公告截圖、購買紀錄、遊戲歷程。</p>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/申訴管道.md">[[申訴管道]]</a>（S1 第 43、44 條；S7）</p>
+</div>
+</section>
+
+<!-- 10 罰則 -->
+<section class="slide" data-src="主管機關與罰則">
+<div class="card">
+  <p class="kicker">業者不照做會怎樣</p>
+  <h2>誰管？罰多少？</h2>
+  <p>線上遊戲的契約規定，從 111 年 8 月 27 日起由<b>數位發展部</b>主管，主管機關可以隨時派員查核。</p>
+  <table>
+    <tr><th>情況</th><th>罰鍰（新臺幣）</th></tr>
+    <tr><td>違反規定，<b>經限期改正仍不改正</b></td><td>3 萬元以上 30 萬元以下</td></tr>
+    <tr><td>再次限期改正仍不改正</td><td>5 萬元以上 50 萬元以下，可以按次處罰</td></tr>
+  </table>
+  <p class="note">是「叫你改、你不改」才罰，不是一發現就罰。</p>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/主管機關與罰則.md">[[主管機關與罰則]]</a>（S1 第 17、56 條之 1；S5；S6）</p>
+</div>
+</section>
+
+<!-- 11 小測驗 -->
+<section class="slide" data-src="常見迷思">
+<div class="card">
+  <p class="kicker">小測驗</p>
+  <h2>這三句話，對還是錯？</h2>
+  <div class="q" data-answer="no">
+    <p>1. 抽到不喜歡的角色，7 天內可以把那次抽卡退掉。</p>
+    <button type="button" data-v="yes">對</button><button type="button" data-v="no">錯</button>
+    <p class="fb" aria-live="polite" data-fb="錯。能請求退還的是「未使用」的點數，已經抽掉的內容不在退還範圍。"></p>
+  </div>
+  <div class="q" data-answer="no">
+    <p>2. 遊戲沒有保底機制，就是違法。</p>
+    <button type="button" data-v="yes">對</button><button type="button" data-v="no">錯</button>
+    <p class="fb" aria-live="polite" data-fb="錯。保底、天井是政府「鼓勵」的機制，不是強制。"></p>
+  </div>
+  <div class="q" data-answer="yes">
+    <p>3. 遊戲要停止營運，業者至少要在 30 日前公告。</p>
+    <button type="button" data-v="yes">對</button><button type="button" data-v="no">錯</button>
+    <p class="fb" aria-live="polite" data-fb="對。停運要在終止前至少 30 日公告並通知，終止時未使用的點數也要退。"></p>
+  </div>
+  <div class="grow"></div>
+  <p class="src">依據：<a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/wiki/常見迷思.md">[[常見迷思]]</a>（S2 壹、四、十九；S3；S4）</p>
+</div>
+</section>
+
+<!-- 12 回顧 -->
+<section class="slide" data-src="index">
+<div class="card">
+  <p class="kicker">帶走這 5 句</p>
+  <h2>抽卡前的<span class="mk">重點回顧</span></h2>
+  <ol class="steps">
+    <li>付費抽獎一定要用百分比公布機率。</li>
+    <li>保底、天井是鼓勵，不是義務；但宣傳有就要做到。</li>
+    <li>付費點數不能設期限，終止契約可退未使用點數。</li>
+    <li>開始遊戲後 7 日內可解除，退的是未使用點數。</li>
+    <li>出事：遊戲公司 → 消保官 → 調解，先打 1950。</li>
+  </ol>
+  <p class="note grow">這份簡報只是入門整理，不是法律意見。實際爭議請洽 1950 或各縣市消保官。</p>
+  <div class="src">
+    <p style="margin:0 0 6px"><b>資料來源（Wiki 的 raw/）</b></p>
+    S1 消費者保護法｜S2 網路連線遊戲服務定型化契約應記載及不得記載事項（112-01-01 生效）｜S3 契約範本修正說明｜S4 通訊交易解除權合理例外情事適用準則｜S5 公視新聞〈轉蛋法通過〉｜S6 數位產業署《2024 遊戲紛爭處理實戰秘笈》｜S7 法律百科｜S8 行政院公告沿革
+    <br><a href="https://github.com/elainechiu2005-collab/genai-portfolio/tree/main/llm-wiki">打開完整 Wiki</a>
+  </div>
+</div>
+</section>
+
+</main>
+<nav class="bar" aria-label="翻頁">
+  <button type="button" id="prev" aria-label="上一頁">←</button>
+  <div class="prog" aria-hidden="true"><span id="bar"></span></div>
+  <span class="count" id="count">1 / 12</span>
+  <button type="button" id="next" aria-label="下一頁">→</button>
+</nav>
+</div>
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, prev = document.getElementById('prev'), next = document.getElementById('next');
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('on', k === i); });
+    slides[i].scrollTop = 0;
+    document.getElementById('count').textContent = (i + 1) + ' / ' + slides.length;
+    document.getElementById('bar').style.width = ((i + 1) / slides.length * 100) + '%';
+    prev.disabled = i === 0; next.disabled = i === slides.length - 1;
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+  }
+  prev.onclick = function(){ show(i - 1); };
+  next.onclick = function(){ show(i + 1); };
+  document.addEventListener('keydown', function(e){
+    if (e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); show(i + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+  });
+  var x0 = null;
+  document.getElementById('stage').addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  document.getElementById('stage').addEventListener('touchend', function(e){
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 60) show(i + (dx < 0 ? 1 : -1)); x0 = null;
+  });
+  document.querySelectorAll('.q').forEach(function(q){
+    q.querySelectorAll('button').forEach(function(b){
+      b.onclick = function(){
+        q.querySelectorAll('button').forEach(function(o){ o.setAttribute('aria-pressed','false'); o.className=''; });
+        var right = b.dataset.v === q.dataset.answer;
+        b.setAttribute('aria-pressed','true'); b.className = right ? 'right' : 'wrong';
+        var fb = q.querySelector('.fb');
+        fb.textContent = (right ? '答對了！' : '再想想：') + fb.dataset.fb;
+      };
+    });
+  });
+  var h = parseInt(location.hash.slice(1), 10);
+  show(isNaN(h) ? 0 : h - 1);
+})();
+</script>
+</body>
+</html>

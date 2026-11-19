@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 LLM Wiki 做一份教學 HTML 簡報｜生成式 AI 作業簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="work" data-work-id="w11" data-root="..">
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="../index.html" data-site-title>生成式 AI 作業簿</a>
+  <nav><a href="../index.html#works">全部作業</a></nav>
+</div></header>
+
+<main class="wrap work">
+  <a class="back" href="../index.html#works">回到作業列表</a>
+  <div class="work-head" id="work-head"></div>
+
+  <article class="sheet">
+    <section>
+      <h2>作業要做什麼</h2>
+      <p>用「先討論、後生成」建立自己主題的 LLM Wiki（至少 ingest 5 份來源），再把 Wiki 當知識來源，做一份初學者看得懂的教學 HTML 簡報；並設計「取得資料 → 查詢 Wiki → 整理重點 → 檢查內容 → 產生簡報」的迴圈，實際跑一次後寫反思。</p>
+    </section>
+
+    <section>
+      <h2>我做了什麼</h2>
+      <ol>
+        <li>先討論：選定主題「抽卡玩家的消費權益」（和第 7 週 RAG、期末專案同主題），並訂出讀者、範圍和規則，寫成 <a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/discussion.md">discussion.md</a> 和 <a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/SCHEMA.md">SCHEMA.md</a>。</li>
+        <li>取得 8 份來源：消保法、遊戲契約應記載及不得記載事項、契約範本修正說明、通訊交易例外準則、公視新聞、數位產業署手冊、法律百科、行政院公告沿革，各存成 <code>raw/</code> 的一份筆記（網址、日期、重點）。</li>
+        <li>逐份 ingest，整理出 11 個 wiki 頁、<code>index.md</code> 目錄和 <code>log.md</code> 操作紀錄；每句話都標來源（S1～S8），來源衝突寫成「⚠ 衝突與待確認」。</li>
+        <li>寫了兩支檢查程式：<code>check_wiki.py</code>（來源、數字、連結、孤兒頁）和 <code>check_slides.py</code>（投影片數字要出現在引用的 wiki 頁、條件詞不可遺漏）。</li>
+        <li>用問題「初學者抽卡前最需要知道什麼？」查詢 Wiki，寫大綱、逐點對照檢查、重寫，最後產生 12 張 HTML 投影片，並在投影機與手機尺寸實際檢查版面。</li>
+        <li>把每一步的結果存成 <a href="https://github.com/elainechiu2005-collab/genai-portfolio/blob/main/llm-wiki/runs/run-01/README.md">run-01 執行紀錄</a>。</li>
+      </ol>
+      <figure>
+        <img src="../assets/img/w11-loop.jpg" alt="工作流程圖：上排是 Wiki 階段，取得資料、Ingest、檢查 A、查詢 Wiki；下排是簡報階段，整理重點、檢查 B、產生簡報、檢查 C、完成。紅色虛線表示檢查不通過時回到哪一步。" loading="lazy">
+        <figcaption>迴圈設計：三個檢查點，紅線是不通過時回去重跑的地方；★ 檢查 B 是跑完一次後往前移的檢查。</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/w11-slides.jpg" alt="教學簡報第 3 張「抽卡機率一定要公開」，列出百分比揭露、提示語，最下方標示依據的 Wiki 頁與來源。" loading="lazy">
+        <figcaption>簡報每一張最下面都有「依據」，可以點回 Wiki 頁查來源。</figcaption>
+      </figure>
+      <h3>迴圈設計說明</h3>
+      <table>
+        <tr><th>哪裡會重複</th><th>為什麼</th></tr>
+        <tr><td>取得資料 ↔ Ingest ↔ 檢查 A</td><td>Wiki 會越長越大，每多一份來源就 ingest 一次、lint 一次；lint 發現缺資料就回去找來源。</td></tr>
+        <tr><td>查詢 → Ingest（回存）</td><td>好的查詢答案（例如「常見迷思」）存回 Wiki，下次不用重查。</td></tr>
+        <tr><td>整理重點 ↔ 檢查 B</td><td>大綱漏條件或把推論寫成確定，就重跑整理；Wiki 沒有答案就回去查詢，不准自己補。</td></tr>
+        <tr><td>產生簡報 ↔ 檢查 C</td><td>數字不符、條件詞被刪、版面溢出就重新產生該張投影片。</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>結果與發現</h2>
+      <ul>
+        <li>檢查 A（lint）第 1 次抓到 11 個問題：10 個是 ingest 時漏標來源，1 個是檢查程式誤判；修正後 0 個。</li>
+        <li><strong>錯最多、也最危險的是「整理重點」節點</strong>：大綱 v1 的 10 點中有 4 點出錯，全部是把法條壓成白話時刪掉條件，例如漏掉「扣除必要成本後」才退點數、漏掉「經限期改正仍不改正」才罰，或把 Wiki 標為「推論」「待確認」的內容寫成確定的事。</li>
+        <li>「查詢」節點 0 個錯誤：大綱沒有出現 Wiki 沒有的內容，代表先讀 index 再讀頁的方式有效。</li>
+        <li>產生簡報後內容沒有再出錯，但投影機尺寸（1280×720）有 5 張要捲動；而且第一次的版面檢查工具本身有 bug（截圖每張都是第 1 張），修好後才看到真正的問題。</li>
+        <li>流程因此改了兩件事：事實檢查從「簡報做完之後」<strong>往前移到大綱階段</strong>（檢查 B）；SCHEMA.md 新增「條件詞不可刪」規則，並把這些條件詞寫進 <code>check_slides.py</code> 自動檢查。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>心得</h2>
+      <p>原本以為最容易錯的是 AI 亂編法條，結果真正出錯的地方是「把法條講白話」：每一句都很順、很好懂，但少了「扣除必要成本」「每次」這幾個字，意思就差很多。</p>
+      <p>這次學到檢查要放在錯誤剛發生的地方。如果等簡報做完才檢查，錯的句子已經被排版、做成測驗，要改的地方會多很多。</p>
+      <p class="todo">以上心得初稿由 Claude 根據執行紀錄草擬，待作者確認或改寫。</p>
+    </section>
+
+    <section class="ai-note">
+      <h2>AI 協助說明</h2>
+      <p>本頁的整理由 Claude 依我的作業內容協助撰寫，我確認後採用。</p>
+    </section>
+  </article>
+
+  <nav class="pager" id="pager" aria-label="上一份與下一份作業"></nav>
+</main>
+
+<footer class="site-footer"><div class="wrap">生成式 AI 課程作業作品集｜每一份作業依照 AGENTS.md 的規則建立</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

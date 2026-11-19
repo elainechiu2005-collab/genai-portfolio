@@ -236,6 +236,35 @@
       "status": "done",
       "cover": null,
       "links": []
+    },
+    {
+      "id": "w11",
+      "order": 11,
+      "week": 10,
+      "page": "works/w11-llm-wiki.html",
+      "title": "用 LLM Wiki 做一份教學 HTML 簡報",
+      "project": "抽卡前，先知道你的 5 個權益",
+      "type": "LLM Wiki",
+      "summary": "把 8 份臺灣法規與資料整理成 LLM Wiki，再用 Wiki 產生給第一次課金玩家看的 12 張教學簡報，每一步都有檢查。",
+      "tags": [
+        "LLM Wiki",
+        "HTML 簡報",
+        "工作流程設計",
+        "消費者保護"
+      ],
+      "due": "2026-11-23",
+      "status": "done",
+      "cover": "assets/img/w11-slides.jpg",
+      "links": [
+        {
+          "label": "打開教學簡報",
+          "url": "https://elainechiu2005-collab.github.io/genai-portfolio/llm-wiki/slides/"
+        },
+        {
+          "label": "查看 Wiki",
+          "url": "https://github.com/elainechiu2005-collab/genai-portfolio/tree/main/llm-wiki"
+        }
+      ]
     }
   ]
 }

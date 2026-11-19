@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#F1F4F8;font-family:"Noto Sans CJK TC","Noto Serif CJK TC",sans-serif}
+text{font-family:inherit;fill:#1C2B3A}
+.n{fill:#fff;stroke:#2F54C8;stroke-width:2.5}
+.c{fill:#FFF6D1;stroke:#C99A00;stroke-width:2.5}
+.cs{fill:#FFE27A;stroke:#C99A00;stroke-width:3.5}
+.t{font-size:24px;font-weight:700;text-anchor:middle}
+.s{font-size:17px;text-anchor:middle;fill:#5B6B7C}
+.a{stroke:#1C2B3A;stroke-width:2.5;fill:none;marker-end:url(#m)}
+.r{stroke:#B3261E;stroke-width:2.5;fill:none;marker-end:url(#mr);stroke-dasharray:7 5}
+.g{stroke:#2F54C8;stroke-width:2;fill:none;marker-end:url(#mb);stroke-dasharray:3 5}
+.rl{font-size:16px;fill:#B3261E;text-anchor:middle;font-weight:700}
+.gl{font-size:16px;fill:#2F54C8;text-anchor:middle}
+.rl,.gl{paint-order:stroke;stroke:#F1F4F8;stroke-width:7px;stroke-linejoin:round}
+.h{font-size:20px;font-weight:700;fill:#5B6B7C}
+</style></head><body>
+<svg width="1400" height="640" viewBox="0 0 1400 640" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1C2B3A"/></marker>
+<marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#B3261E"/></marker>
+<marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2F54C8"/></marker>
+</defs>
+<text x="40" y="44" class="h">Wiki 階段（可以反覆 ingest，資料越多越完整）</text>
+<!-- row1 y=150 -->
+<rect class="n" x="40" y="100" width="230" height="100" rx="14"/><text class="t" x="155" y="142">① 取得資料</text><text class="s" x="155" y="172">新來源放進 raw/</text>
+<rect class="n" x="370" y="100" width="250" height="100" rx="14"/><text class="t" x="495" y="142">② Ingest</text><text class="s" x="495" y="172">更新 wiki 頁、index、log</text>
+<rect class="c" x="720" y="100" width="250" height="100" rx="50"/><text class="t" x="845" y="142">檢查 A｜lint</text><text class="s" x="845" y="172">來源、數字、連結、孤兒頁</text>
+<rect class="n" x="1070" y="100" width="290" height="100" rx="14"/><text class="t" x="1215" y="142">③ 查詢 Wiki</text><text class="s" x="1215" y="172">先讀 index，再讀頁面</text>
+<path class="a" d="M270 150H366"/><path class="a" d="M620 150H716"/><path class="a" d="M970 150H1066"/>
+<path class="r" d="M800 100C760 52 600 52 540 96"/><text class="rl" x="670" y="70">不通過 → 重跑 Ingest</text>
+<path class="r" d="M790 200C720 268 280 268 160 204"/><text class="rl" x="470" y="252">發現缺資料 → 回去找來源</text>
+<path class="g" d="M1215 100C1215 40 640 30 510 96"/><text class="gl" x="1000" y="52">好的答案存回 Wiki（常見迷思）</text>
+<!-- connector -->
+<path class="a" d="M1215 200V300H155V376"/>
+<text x="40" y="350" class="h">簡報階段</text>
+<!-- row2 y=430 -->
+<rect class="n" x="40" y="380" width="230" height="100" rx="14"/><text class="t" x="155" y="422">④ 整理重點</text><text class="s" x="155" y="452">寫簡報大綱</text>
+<rect class="cs" x="340" y="372" width="300" height="116" rx="58"/><text class="t" x="490" y="416">★ 檢查 B（移到這裡）</text><text class="s" x="490" y="446" style="fill:#1C2B3A">大綱對照 Wiki：事實、條件詞、推論</text>
+<rect class="n" x="710" y="380" width="230" height="100" rx="14"/><text class="t" x="825" y="422">⑤ 產生簡報</text><text class="s" x="825" y="452">HTML 投影片</text>
+<rect class="c" x="1010" y="380" width="250" height="100" rx="50"/><text class="t" x="1135" y="422">檢查 C</text><text class="s" x="1135" y="452">數字＋條件詞、版面</text>
+<path class="a" d="M270 430H336"/><path class="a" d="M640 430H706"/><path class="a" d="M940 430H1006"/>
+<path class="a" d="M1260 430H1300V540"/><rect x="1240" y="544" width="120" height="50" rx="25" fill="#2F54C8"/><text x="1300" y="576" class="t" style="fill:#fff;font-size:20px">完成</text>
+<path class="r" d="M420 488C380 560 200 560 160 484"/><text class="rl" x="290" y="580">漏條件／寫錯 → 重跑整理</text>
+<path class="r" d="M600 380C640 300 1100 290 1180 204"/><text class="rl" x="880" y="318">Wiki 沒有答案 → 回去查詢</text>
+<path class="r" d="M1100 480C1060 560 880 560 840 484"/><text class="rl" x="970" y="580">版面溢出、數字不符 → 重跑產生</text>
+<text x="40" y="626" class="s" style="text-anchor:start">紅色虛線＝檢查不通過時回到哪一步　藍色點線＝查詢結果回存　黃色＝檢查點（★ 是這次執行後往前移的檢查）</text>
+</svg></body></html>

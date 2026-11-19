@@ -1,0 +1,24 @@
+projector 第1張(1 / 12) 水平溢出=false 需要捲動=false
+projector 第2張(2 / 12) 水平溢出=false 需要捲動=true（多 21px）
+projector 第3張(3 / 12) 水平溢出=false 需要捲動=true（多 27px）
+projector 第4張(4 / 12) 水平溢出=false 需要捲動=false
+projector 第5張(5 / 12) 水平溢出=false 需要捲動=false
+projector 第6張(6 / 12) 水平溢出=false 需要捲動=false
+projector 第7張(7 / 12) 水平溢出=false 需要捲動=false
+projector 第8張(8 / 12) 水平溢出=false 需要捲動=false
+projector 第9張(9 / 12) 水平溢出=false 需要捲動=true（多 2px）
+projector 第10張(10 / 12) 水平溢出=false 需要捲動=false
+projector 第11張(11 / 12) 水平溢出=false 需要捲動=true（多 127px）
+projector 第12張(12 / 12) 水平溢出=false 需要捲動=true（多 142px）
+phone 第1張(1 / 12) 水平溢出=false 需要捲動=true（多 94px）
+phone 第2張(2 / 12) 水平溢出=false 需要捲動=true（多 262px）
+phone 第3張(3 / 12) 水平溢出=false 需要捲動=true（多 56px）
+phone 第4張(4 / 12) 水平溢出=false 需要捲動=true（多 96px）
+phone 第5張(5 / 12) 水平溢出=false 需要捲動=false
+phone 第6張(6 / 12) 水平溢出=false 需要捲動=true（多 96px）
+phone 第7張(7 / 12) 水平溢出=false 需要捲動=true（多 190px）
+phone 第8張(8 / 12) 水平溢出=false 需要捲動=true（多 62px）
+phone 第9張(9 / 12) 水平溢出=false 需要捲動=true（多 25px）
+phone 第10張(10 / 12) 水平溢出=false 需要捲動=false
+phone 第11張(11 / 12) 水平溢出=false 需要捲動=true（多 50px）
+phone 第12張(12 / 12) 水平溢出=false 需要捲動=true（多 250px）
